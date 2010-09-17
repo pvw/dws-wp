@@ -6,7 +6,9 @@
 	<title>
 		<?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' |'; } ?> <?php bloginfo('name'); ?>
 	</title>
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/build/dws_style.css?v=1">
+
 	<link rel="alternate" type="application/rss+xml" 
 		title="Akvo blog posts" href="<?php bloginfo('rss2_url'); ?>" />
 
