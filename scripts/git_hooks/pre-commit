@@ -10,9 +10,8 @@
 
 #echo 'In update pre-commit'
 
-#exec python `pwd`'../asset_manager/packer.py'
+exec python `pwd`'/scripts/asset_manager/packer.py'
 
-echo `pwd`
 
 # --- Finished
 exit 0
