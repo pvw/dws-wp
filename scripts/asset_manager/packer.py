@@ -24,7 +24,7 @@ def clean():
         bundle_type = BUNDLE_MAP[bundle]['type']
         
         try:
-            rm_string = 'git rm --quiet %s/../../mediaroot/%s/build/%s_min_%s.%s' % (cwd, bundle_path, bundle,bundle_hash,bundle_type)
+            rm_string = 'git rm --quiet %s/../../%s/build/%s_min_%s.%s' % (cwd, bundle_path, bundle,bundle_hash,bundle_type)
             retcode = subprocess.call(rm_string, shell=True)
             if retcode < 0:
                 print >>sys.stderr, "git rm was terminated by signal", -retcode
@@ -78,7 +78,7 @@ def generate():
         for file_element in ASSET_BUNDLES[bundle]['files']:
             try:
                 file_path = path + 'src/' + file_element
-                source_file = open('%s/../../mediaroot/%s' % (cwd,file_path) )
+                source_file = open('%s/../../%s' % (cwd,file_path) )
                 tmp = source_file.read()
                 source_file.close()                
                 file_contents = '%s\n\n/*%s\n Contents from: %s\n%s*/\n\n%s' % (file_contents, 75*'-', file_element, 75*'-', tmp)
@@ -89,7 +89,7 @@ def generate():
                 raise e
 
         # 1.2 Persist to disk since the YUI compressor need a file
-        bundle_file_path = '%s/../../mediaroot/%ssrc/%s.%s' % (cwd, path, bundle, ASSET_BUNDLES[bundle]['type'])
+        bundle_file_path = '%s/../../%ssrc/%s.%s' % (cwd, path, bundle, ASSET_BUNDLES[bundle]['type'])
         bundle_file = open(bundle_file_path,"w")
         bundle_file.write(file_contents)
         bundle_file.close()
@@ -112,7 +112,7 @@ def generate():
         bundle_hash = hashlib.sha1(completed_file_contents).hexdigest()
         
         try:
-            mv_string = 'mv %s %s/../../mediaroot/%sbuild/%s_min_%s.%s' % (bundle_file_path, cwd, ASSET_BUNDLES[bundle]['path'], bundle, bundle_hash, ASSET_BUNDLES[bundle]['type'])
+            mv_string = 'mv %s %s/../../%sbuild/%s_min_%s.%s' % (bundle_file_path, cwd, ASSET_BUNDLES[bundle]['path'], bundle, bundle_hash, ASSET_BUNDLES[bundle]['type'])
             retcode = subprocess.call(mv_string, shell=True)
             if retcode < 0:
                 print >>sys.stderr, "Could not move (rename) the bundle file, Move was terminated by signal", -retcode
@@ -122,7 +122,7 @@ def generate():
         
         # 1.5 Add the new file to the git index
         try:
-            git_add_string = 'git add %s/../../mediaroot/%sbuild/%s_min_%s.%s' % (cwd, ASSET_BUNDLES[bundle]['path'], bundle, bundle_hash, ASSET_BUNDLES[bundle]['type'])
+            git_add_string = 'git add %s/../../%sbuild/%s_min_%s.%s' % (cwd, ASSET_BUNDLES[bundle]['path'], bundle, bundle_hash, ASSET_BUNDLES[bundle]['type'])
             retcode = subprocess.call(git_add_string, shell=True)
             if retcode < 0:
                 print >>sys.stderr, "Could add the file to the git index, Git add was terminated by signal", -retcode
@@ -140,7 +140,7 @@ def generate():
         # 1.7 If css bundle create a raw file for devlopment
         if ASSET_BUNDLES[bundle]['type'] == 'css':
             try:
-                raw_file_path = '%s/../../mediaroot/%sbuild/%s_raw.css' % (cwd, path, bundle,)
+                raw_file_path = '%s/../../%sbuild/%s_raw.css' % (cwd, path, bundle,)
                 raw_file = open(raw_file_path,"w")
                 raw_file.write(raw_file_contents)
                 raw_file.close()
@@ -185,8 +185,10 @@ def main():
     print 'Running packer...'
     
     # 1. Clean up old files
+    '''
     if not clean():
         print 'Cleaner did not find a map file'
+    '''
     
     # 2. Generate new files (asset bundle files and map file)
     if not generate():
