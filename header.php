@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="<?php language_attributes(); ?>">
+<html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<link rel="shortcut icon" href="http://www.akvo.org/images/favicon.ico" />
 	<title>
 		<?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' |'; } ?> <?php bloginfo('name'); ?>
 	</title>
 
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/build/dws_style.css?v=1">
+    
+    <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.ico" />
 
 	<link rel="alternate" type="application/rss+xml" 
 		title="Akvo blog posts" href="<?php bloginfo('rss2_url'); ?>" />
@@ -69,7 +70,3 @@
 		&nbsp;
 	</div>
 	<div id="main_container" class="container">
-	    
-			
-	
-	
