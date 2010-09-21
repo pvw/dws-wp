@@ -40,8 +40,8 @@
 				</a>
 			</li>
 			<li>
-				<a href="/web/neatherland">
-					<span>Neatherlands</span>
+				<a href="/web/netherland">
+					<span>Netherlands</span>
 				</a>
 			</li>
 			<li>
