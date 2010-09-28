@@ -4,7 +4,7 @@
 	<div id="breadcrum_back">
 		<ul id="breadcrum">
 			<li><a href="/"><span>Home</span></a></li>
-			<li><a href="<?php bloginfo('wpurl'); ?>"><span>Blog</span></a></li>
+			<li><a href="<?php bloginfo('wpurl'); ?>"><span>News</span></a></li>
 			<li id="last_breadcrum_item">Page Not Found (Error 404)</li>
 		</ul>
 		<div class="clear"></div>

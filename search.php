@@ -4,7 +4,7 @@
 	<div id="breadcrum_back">
 		<ul id="breadcrum">
 			<li><a href="/"><span>Home</span></a></li>
-			<li><a href="<?php bloginfo('wpurl'); ?>"><span>Blog</span></a></li>
+			<li><a href="<?php bloginfo('wpurl'); ?>"><span>News</span></a></li>
             <li id="last_breadcrum_item">Search results for &quot;<?php echo($_GET['s']); ?>&quot;</li>		
 		</ul>
 		<div class="clear"></div>
