@@ -4,7 +4,7 @@
 	<div id="breadcrum_back">
 		<ul id="breadcrum">
 			<li><a href="/"><span>Home</span></a></li>
-			<li id="last_breadcrum_item">Blog</li>
+			<li id="last_breadcrum_item">News</li>
 		</ul>
 		<div class="clear"></div>
 	</div>
