@@ -40,7 +40,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="/web/netherland">
+				<a href="/web/netherlands">
 					<span>Netherlands</span>
 				</a>
 			</li>
@@ -55,7 +55,7 @@
 				</a>
 			</li>
 			<li class="active"><a href="/news"><span>News</span></a></li>
-			<li><a href="/web/who_we_are"><span>About</span></a></li>
+			<li><a href="/web/about"><span>About</span></a></li>
 			<li>
 				<span id="main_nav_language">
 						&nbsp;
